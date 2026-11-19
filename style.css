@@ -1,0 +1,891 @@
+﻿
+/* ========================================
+   1. 基本設定・カラーパレット
+======================================== */
+
+:root {
+    --main-color: #52745C;
+    --main-dark: #405A47;
+    --sub-color: #DDE9DC;
+
+    --background-color: #F2F5EF;
+    --card-color: #FFFFFF;
+
+    --text-color: #34483B;
+    --sub-text-color: #68766B;
+
+    --accent-color: #EAE6D9;
+    --border-color: #D9E2D7;
+
+    --warning-bg: #F7EEEA;
+    --warning-text: #85584D;
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    margin: 0;
+
+    font-family:
+        "Yu Gothic",
+        "Meiryo",
+        sans-serif;
+
+    color: var(--text-color);
+    background: var(--background-color);
+
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* すべての文字を中央揃え */
+body * {
+    text-align: center;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0 auto;
+    list-style: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+p,
+li,
+h1,
+h2,
+h3,
+a {
+    overflow-wrap: break-word;
+}
+
+/* ========================================
+   2. ヘッダー
+======================================== */
+
+.header {
+    padding: 35px 20px;
+
+    background: var(--main-color);
+    color: #FFFFFF;
+
+    box-shadow: 0 3px 10px #0000000D;
+}
+
+.header-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-inner h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.header-inner p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #E5EFE5;
+}
+
+/* ========================================
+   3. ナビゲーション
+======================================== */
+
+.navigation {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px 30px;
+    padding: 15px 20px;
+
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--border-color);
+
+    box-shadow: 0 2px 8px #0000000A;
+}
+
+.navigation a {
+    color: var(--main-dark);
+    font-weight: bold;
+    font-size: 14px;
+
+    padding: 5px 3px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.navigation a:hover {
+    color: var(--main-color);
+    background: var(--sub-color);
+    border-radius: 5px;
+}
+
+/* ========================================
+   4. メインコンテンツ
+======================================== */
+
+main {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+section {
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 65px 20px;
+
+    scroll-margin-top: 100px;
+}
+
+/* ========================================
+   5. ページタイトル
+======================================== */
+
+.page-title {
+    padding: 75px 20px;
+
+    background: linear-gradient(
+        135deg,
+        #E4EDE1,
+        #F2F5EF
+    );
+
+    border-radius: 0 0 20px 20px;
+}
+
+.sub-title {
+    display: block;
+
+    color: var(--main-color);
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.page-title h2 {
+    margin: 10px 0;
+
+    color: var(--main-dark);
+    font-size: 42px;
+}
+
+.page-title p {
+    margin: 10px auto 0;
+
+    color: var(--sub-text-color);
+    font-size: 16px;
+}
+
+/* ========================================
+   6. 目次
+======================================== */
+
+.contents {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.contents h2 {
+    margin-bottom: 25px;
+
+    color: var(--main-dark);
+    font-size: 28px;
+}
+
+.contents ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+.contents li {
+    width: 100%;
+    max-width: 550px;
+}
+
+.contents li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    width: 100%;
+    padding: 16px 20px;
+
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+
+    color: var(--text-color);
+    font-weight: bold;
+
+    box-shadow: 0 3px 10px #00000008;
+
+    transition:
+        background 0.2s,
+        transform 0.2s;
+}
+
+.contents li a:hover {
+    background: var(--sub-color);
+    transform: translateY(-2px);
+}
+
+.contents li a span {
+    color: var(--main-color);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ========================================
+   7. 各項目の共通設定
+======================================== */
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 25px;
+}
+
+.section-heading {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.section-heading span {
+    color: #A99F83;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    color: var(--main-dark);
+    font-size: 28px;
+}
+
+/* ========================================
+   8. 情報カード
+======================================== */
+
+.info-card {
+    width: 100%;
+    max-width: 750px;
+
+    margin: 0 auto;
+    padding: 30px 25px;
+
+    background: var(--card-color);
+
+    border: 1px solid var(--border-color);
+    border-top: 5px solid var(--main-color);
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 16px #00000008;
+}
+
+.info-card h3 {
+    margin: 0 0 20px;
+
+    color: var(--main-dark);
+    font-size: 22px;
+}
+
+.info-card p {
+    margin: 10px auto;
+}
+
+/* 2つ目以降の見出し */
+.info-card .sub-heading {
+    margin-top: 35px;
+}
+
+/* ========================================
+   9. 持ち物チェックリスト
+======================================== */
+
+.check-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+    max-width: 500px;
+
+    margin: 0 auto;
+}
+
+.check-list li {
+    width: 100%;
+    padding: 12px 15px;
+
+    background: #F2F5EF;
+    border: 1px solid #E5EBE2;
+
+    border-radius: 8px;
+
+    color: var(--text-color);
+}
+
+/* ========================================
+   10. 注意・重要事項
+======================================== */
+
+.warning {
+    max-width: 550px;
+
+    margin: 20px auto;
+    padding: 18px;
+
+    background: var(--warning-bg);
+    border: 1px solid #E8D5CD;
+    border-radius: 10px;
+
+    color: var(--warning-text);
+    font-weight: bold;
+}
+
+.important {
+    max-width: 550px;
+
+    margin: 20px auto;
+    padding: 20px;
+
+    background: #EAF1E8;
+    border: 2px solid var(--main-color);
+    border-radius: 12px;
+}
+
+.important strong {
+    display: block;
+
+    margin: 10px auto;
+
+    color: var(--main-dark);
+    font-size: 25px;
+}
+
+/* ========================================
+   11. ルール・マナー
+======================================== */
+
+.notice-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+
+    width: 100%;
+    max-width: 600px;
+
+    margin: 20px auto;
+}
+
+.notice-list li {
+    width: 100%;
+    padding: 18px;
+
+    background: #F2F5EF;
+    border-radius: 10px;
+
+    border-left: 4px solid #B5A98C;
+
+    color: var(--text-color);
+}
+
+.notice-list small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--sub-text-color);
+}
+
+/* ========================================
+   12. スケジュール
+======================================== */
+
+.schedule-placeholder {
+    width: 100%;
+    max-width: 600px;
+
+    min-height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto;
+    padding: 25px;
+
+    background: #F2F5EF;
+
+    border: 2px dashed #A9BBA8;
+    border-radius: 12px;
+}
+
+.schedule-placeholder p {
+    color: var(--sub-text-color);
+}
+
+/* ========================================
+   13. 最後に
+======================================== */
+
+.last-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 750px;
+
+    margin: 30px auto 70px;
+    padding: 55px 25px;
+
+    background: #E4EDE1;
+    border: 1px solid var(--border-color);
+
+    border-radius: 20px;
+}
+
+.last-section h2 {
+    margin: 10px 0 20px;
+
+    color: var(--main-dark);
+    font-size: 32px;
+}
+
+.last-section p {
+    max-width: 550px;
+    margin: 10px auto;
+
+    color: var(--text-color);
+}
+
+.last-message {
+    color: var(--main-dark);
+    font-weight: bold;
+    font-size: 19px;
+}
+
+/* ========================================
+   14. TOPボタン
+======================================== */
+
+.top-button {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+
+    background: var(--main-color);
+    color: #FFFFFF;
+
+    border-radius: 50%;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 3px 10px #00000020;
+
+    transition:
+        background 0.2s,
+        transform 0.2s;
+}
+
+.top-button:hover {
+    background: var(--main-dark);
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   15. フッター
+======================================== */
+
+footer {
+    padding: 30px 20px;
+
+    background: var(--main-dark);
+    color: #FFFFFF;
+}
+
+footer p {
+    margin: 5px;
+
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+footer small {
+    font-size: 12px;
+    color: #E1EAE0;
+}
+
+/* ========================================
+   16. タブレット対応
+======================================== */
+
+@media screen and (max-width: 900px) {
+
+    .header-inner h1 {
+        font-size: 28px;
+    }
+
+    .navigation {
+        gap: 10px 20px;
+    }
+
+    main {
+        padding: 0 18px;
+    }
+
+    section {
+        padding: 50px 15px;
+    }
+
+    .info-card {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   17. スマートフォン対応
+======================================== */
+
+@media screen and (max-width: 600px) {
+
+    /* ヘッダー */
+    .header {
+        padding: 22px 12px;
+    }
+
+    .header-inner h1 {
+        font-size: clamp(19px, 5vw, 24px);
+    }
+
+    .header-inner p {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    /* ナビゲーション */
+    .navigation {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 5px;
+        padding: 8px;
+    }
+
+    .navigation a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 42px;
+        padding: 6px 3px;
+
+        font-size: 12px;
+
+        background: #F2F5EF;
+        border-radius: 6px;
+    }
+
+    /* メイン */
+    main {
+        padding: 0 8px;
+    }
+
+    section {
+        padding: 35px 8px;
+        scroll-margin-top: 110px;
+    }
+
+    /* ページタイトル */
+    .page-title {
+        padding: 45px 12px;
+    }
+
+    .page-title h2 {
+        font-size: 30px;
+    }
+
+    .page-title p {
+        font-size: 13px;
+    }
+
+    /* 目次 */
+    .contents {
+        width: 100%;
+    }
+
+    .contents h2 {
+        font-size: 24px;
+    }
+
+    .contents li a {
+        padding: 13px 8px;
+        gap: 8px;
+        font-size: 13px;
+    }
+
+    .contents li a span {
+        font-size: 17px;
+    }
+
+    /* セクション見出し */
+    .section-heading h2 {
+        font-size: 20px;
+    }
+
+    .section-heading span {
+        font-size: 25px;
+    }
+
+    /* 情報カード */
+    .info-card {
+        width: 100%;
+        padding: 22px 12px;
+        border-radius: 12px;
+    }
+
+    .info-card h3 {
+        font-size: 18px;
+    }
+
+    .info-card p {
+        font-size: 14px;
+    }
+
+    .info-card .sub-heading {
+        margin-top: 28px;
+    }
+
+    /* リスト */
+    .check-list,
+    .notice-list {
+        width: 100%;
+    }
+
+    .check-list li,
+    .notice-list li {
+        padding: 12px 8px;
+        font-size: 13px;
+    }
+
+    /* 注意・重要事項 */
+    .warning,
+    .important {
+        padding: 14px 10px;
+    }
+
+    .warning p {
+        font-size: 13px;
+    }
+
+    .important strong {
+        font-size: 19px;
+    }
+
+    /* スケジュール */
+    .schedule-placeholder {
+        min-height: 120px;
+        padding: 15px 8px;
+    }
+
+    .schedule-placeholder p {
+        font-size: 13px;
+    }
+
+    /* 最後に */
+    .last-section {
+        width: 100%;
+
+        padding: 35px 12px;
+        margin: 20px auto 50px;
+    }
+
+    .last-section h2 {
+        font-size: 25px;
+    }
+
+    .last-section p {
+        font-size: 13px;
+    }
+
+    .last-message {
+        font-size: 15px;
+    }
+
+    /* TOPボタン */
+    .top-button {
+        width: 45px;
+        height: 45px;
+
+        right: 12px;
+        bottom: 12px;
+
+        font-size: 12px;
+    }
+
+    /* フッター */
+    footer {
+        padding: 25px 10px;
+    }
+}
+
+/* ========================================
+   18. 小型スマートフォン対応
+======================================== */
+
+@media screen and (max-width: 380px) {
+
+    .navigation {
+        gap: 4px;
+        padding: 6px;
+    }
+
+    .navigation a {
+        font-size: 11px;
+    }
+
+    .page-title h2 {
+        font-size: 26px;
+    }
+
+    .section-heading h2 {
+        font-size: 18px;
+    }
+
+    .info-card {
+        padding: 18px 9px;
+    }
+
+    .contents li a {
+        font-size: 12px;
+    }
+}
+
+/* ========================================
+   19. 動きを抑える設定
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* ========================================
+   20. 印刷対応
+======================================== */
+
+@media print {
+
+    body {
+        background: #FFFFFF;
+        color: #222222;
+    }
+
+    .navigation,
+    .top-button {
+        display: none;
+    }
+
+    .header {
+        background: #FFFFFF;
+        color: #222222;
+        box-shadow: none;
+    }
+
+    .header-inner p {
+        color: #555555;
+    }
+
+    .info-card,
+    .last-section {
+        box-shadow: none;
+        break-inside: avoid;
+    }
+
+    section {
+        padding: 25px 10px;
+    }
+
+    footer {
+        background: #FFFFFF;
+        color: #222222;
+    }
+}

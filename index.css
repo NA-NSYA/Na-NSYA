@@ -889,3 +889,32 @@ footer small {
         color: #222222;
     }
 }
+
+/* ========================================
+   キャリーバッグの画像
+======================================== */
+
+.baggage-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* キャリーバッグ画像のサイズ */
+.baggage-image {
+    display: block;
+    width: 140px;
+    max-width: 100%;
+    height: auto;
+    margin: 5px auto;
+    object-fit: contain;
+}
+
+/* スマートフォン対応 */
+@media screen and (max-width: 600px) {
+    .baggage-image {
+        width: 110px;
+    }
+}
+
